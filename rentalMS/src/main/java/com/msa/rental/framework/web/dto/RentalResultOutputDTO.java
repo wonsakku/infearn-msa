@@ -12,7 +12,7 @@ public class RentalResultOutputDTO {
     public Integer rentedCount;
     public long totalLateFee;
 
-    public static RentalResultOutputDTO ampToDTO(RentalCard rental){
+    public static RentalResultOutputDTO mapToDTO(RentalCard rental){
         RentalResultOutputDTO dto = new RentalResultOutputDTO();
         dto.setUserId(rental.getMember().getId());
         dto.setUserNm(rental.getMember().getName());
