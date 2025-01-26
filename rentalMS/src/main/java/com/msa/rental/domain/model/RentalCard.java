@@ -92,6 +92,7 @@ public class RentalCard {
         if(returnDate.compareTo(rentalItem.getOverdueDate()) > 0){
             long point = Period.between(rentalItem.getOverdueDate(), returnDate).getDays() * 10L;
             this.lateFee.addPoint(point);
+            this.setLateFee(this.lateFee.addPoint(point)); //수정 필요
         }
     }
 
