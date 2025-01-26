@@ -8,6 +8,6 @@ import lombok.Setter;
 public class UserItemInputDTO {
     private String userId;
     private String userNm;
-    private String itemId;
+    private Integer itemId;
     private String itemTitle;
 }
