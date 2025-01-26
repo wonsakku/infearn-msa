@@ -2,10 +2,13 @@ package com.msa.rental.domain.model.vo;
 
 import lombok.*;
 
+import javax.persistence.Embeddable;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Embeddable
 public class LateFee {
     private long point;
 

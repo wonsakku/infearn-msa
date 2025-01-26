@@ -2,6 +2,8 @@ package com.msa.rental.domain.model.vo;
 
 import lombok.*;
 
+import javax.persistence.Embeddable;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -10,7 +12,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class RentalCardNo {
+@Embeddable
+public class RentalCardNo implements Serializable {
     private String no;
 
     public static RentalCardNo createRentalCardNo(){

@@ -6,6 +6,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
@@ -14,15 +18,25 @@ import java.util.List;
 
 @Data
 @Builder
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 public class RentalCard {
 
+    @EmbeddedId
     private RentalCardNo rentalCardNo;
+
+    @Embedded
     private IDName member;
     private RentStatus rentStatus;
+
+    @Embedded
     private LateFee lateFee;
+
+    @ElementCollection
     private List<RentalItem> rentalItemList = new ArrayList<>();
+
+    @ElementCollection
     private List<ReturnItem> returnItemList = new ArrayList<>();
 
     public static RentalCard sample(){

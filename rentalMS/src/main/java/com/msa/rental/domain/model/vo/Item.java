@@ -5,10 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Embeddable;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Embeddable
 public class Item {
     private Integer no;
     private String title;
