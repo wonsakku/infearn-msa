@@ -15,8 +15,9 @@
     </properties>
 
     <modules>
-        <module>Book</module>
-        <module>Rental</module>
+        <module>BookMS</module>
+        <module>MemberMS</module>
+        <module>rentalMS</module>
     </modules>
 
 </project>
