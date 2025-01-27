@@ -35,8 +35,8 @@ public class InquiryInputPort implements InquiryUseCase {
     }
 
     @Override
-    public Optional<List<ReturnItemOutputDTO>> getAllReturnItem(UserItemInputDTO userItemInputDTO) {
-        return rentalCardOutputPort.loadRentalCard(userItemInputDTO.getUserId())
+    public Optional<List<ReturnItemOutputDTO>> getAllReturnItem(UserInputDTO userInputDTO) {
+        return rentalCardOutputPort.loadRentalCard(userInputDTO.getUserId())
                 .map(loadCard -> loadCard.getReturnItemList()
                         .stream()
                         .map(ReturnItemOutputDTO::mapToDTO)

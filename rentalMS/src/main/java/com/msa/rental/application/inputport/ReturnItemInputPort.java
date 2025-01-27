@@ -2,6 +2,7 @@ package com.msa.rental.application.inputport;
 
 import com.msa.rental.application.outputport.RentalCardOutputPort;
 import com.msa.rental.application.usecase.RentItemUseCase;
+import com.msa.rental.application.usecase.ReturnItemUserCase;
 import com.msa.rental.domain.model.RentalCard;
 import com.msa.rental.domain.model.vo.Item;
 import com.msa.rental.framework.web.dto.RentalCardOutputDTO;
@@ -15,16 +16,16 @@ import java.time.LocalDate;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class ReturnItemInputPort implements RentItemUseCase {
+public class ReturnItemInputPort implements ReturnItemUserCase {
 
     private final RentalCardOutputPort rentalCardOutputPort;
 
     @Override
-    public RentalCardOutputDTO renItem(UserItemInputDTO rental) {
-        RentalCard rentalCard = rentalCardOutputPort.loadRentalCard(rental.getUserId())
+    public RentalCardOutputDTO returnItem(UserItemInputDTO returnDto) {
+        RentalCard rentalCard = rentalCardOutputPort.loadRentalCard(returnDto.getUserId())
                 .orElseThrow(() -> new IllegalArgumentException("해당 카드가 존재하지 않습니다."));
 
-        Item item = new Item(rental.getItemId(), rental.getItemTitle());
+        Item item = new Item(returnDto.getItemId(), returnDto.getItemTitle());
         rentalCard.returnItem(item, LocalDate.now());
 
         return RentalCardOutputDTO.mapToDTO(rentalCard);

@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface InquiryUseCase {
     Optional<RentalCardOutputDTO> getRentalCard(UserInputDTO userInputDTO);
     Optional<List<RentItemOutputDTO>> getAllRentItem(UserInputDTO userInputDTO);
-    Optional<List<ReturnItemOutputDTO>> getAllReturnItem(UserItemInputDTO userItemInputDTO);
+    Optional<List<ReturnItemOutputDTO>> getAllReturnItem(UserInputDTO userInputDTO);
 }
