@@ -60,6 +60,13 @@ public class RentalController {
         return ResponseEntity.ok(rentalCardOutputDTO);
     }
 
+    @ApiOperation(value = "반납기능",notes = "사용자정보,아이템정보1 -> 도서카드정보 ")
+    @PostMapping("/RentalCard/return")
+    public ResponseEntity<RentalCardOutputDTO> returnItem(@RequestBody UserItemInputDTO userItemInputDTO) {
+        RentalCardOutputDTO rentalCardOutputDTO = returnItemUserCase.returnItem(userItemInputDTO);
+        return ResponseEntity.ok(rentalCardOutputDTO);
+    }
+
     @ApiOperation(value = "연체기능",notes = "사용자정보,아이템정보1 -> 도서카드정보 ")
     @PostMapping("/RentalCard/overdue")
     public ResponseEntity<RentalCardOutputDTO> overdueItem(@RequestBody

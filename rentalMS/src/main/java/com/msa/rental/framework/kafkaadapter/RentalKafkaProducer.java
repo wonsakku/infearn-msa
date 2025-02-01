@@ -85,5 +85,5 @@ public class RentalKafkaProducer implements EventOutputPort {
                 log.error("Unable to send message=[{}] due to : {}", overdueCleared.getIdName().getId(), ex.getMessage(), ex);
             }
         });
-z    }
+    }
 }
